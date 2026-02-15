@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For Ayasha 💖</title>
+
+<style>
+body{
+    margin:0;
+    padding:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:'Segoe UI',sans-serif;
+    background:linear-gradient(-45deg,#ff4e50,#ff6ec4,#f9d423,#fc913a);
+    background-size:400% 400%;
+    animation:bg 8s ease infinite;
+    overflow:hidden;
+    color:white;
+}
+
+@keyframes bg{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+.container{
+    text-align:center;
+    animation:fade 2s ease;
+}
+
+@keyframes fade{
+    from{opacity:0; transform:scale(0.8);}
+    to{opacity:1; transform:scale(1);}
+}
+
+h1{
+    font-size:42px;
+    margin-bottom:30px;
+    text-shadow:0 0 20px rgba(255,255,255,0.6);
+}
+
+button{
+    padding:14px 28px;
+    font-size:18px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    margin:15px;
+    transition:0.3s;
+}
+
+#yesBtn{
+    background:white;
+    color:#ff4e50;
+    font-weight:bold;
+}
+
+#yesBtn:hover{
+    transform:scale(1.2);
+    box-shadow:0 0 20px white;
+}
+
+#noBtn{
+    background:black;
+    color:white;
+    font-weight:bold;
+    position:relative;
+}
+
+#noBtn:hover{
+    background:red;
+}
+
+#finalMessage{
+    display:none;
+    font-size:34px;
+    animation:pop 1.5s ease forwards;
+}
+
+@keyframes pop{
+    from{opacity:0; transform:scale(0);}
+    to{opacity:1; transform:scale(1);}
+}
+
+.heart{
+    position:absolute;
+    font-size:22px;
+    animation:float 5s linear infinite;
+}
+
+@keyframes float{
+    from{transform:translateY(100vh);}
+    to{transform:translateY(-10vh);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="main">
+    <h1>Ayasha, did you love me? 💖</h1>
+    <button id="yesBtn" onclick="showFinal()">Yes 💘</button>
+    <button id="noBtn">No 😡</button>
+</div>
+
+<div class="container" id="finalMessage">
+    💖 Awwww 😍💖<br><br>
+    Now go to my DM and type:<br>
+    <b>"I love u 💖"</b><br><br>
+    Opening Instagram...
+</div>
+
+<script>
+
+// NO BUTTON ESCAPE 😡
+var noBtn = document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover", function(){
+    var x = Math.random() * (window.innerWidth - 120);
+    var y = Math.random() * (window.innerHeight - 60);
+
+    noBtn.style.position="absolute";
+    noBtn.style.left=x+"px";
+    noBtn.style.top=y+"px";
+});
+
+// YES BUTTON FUNCTION
+function showFinal(){
+    document.getElementById("main").style.display="none";
+    document.getElementById("finalMessage").style.display="block";
+    createHearts();
+
+    setTimeout(function(){
+        window.location.href="https://instagram.com/ohh.itz_saalim";
+    },3000);
+}
+
+// FLOATING HEARTS 💓
+function createHearts(){
+    for(let i=0;i<40;i++){
+        let heart=document.createElement("div");
+        heart.innerHTML="💖";
+        heart.classList.add("heart");
+        heart.style.left=Math.random()*100+"vw";
+        heart.style.animationDuration=(2+Math.random()*3)+"s";
+        document.body.appendChild(heart);
+    }
+}
+</script>
+
+</body>
+</html>
